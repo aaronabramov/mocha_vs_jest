@@ -46,8 +46,11 @@ rimraf.sync(TESTS_DIR);
 mkdirp.sync(TESTS_DIR);
 
 const result = [];
+const step = 4;
 
-for (let n = 1; n <= 30; n++) {
+for (let i = 1; i <= 25; i++) {
+  const n = i * step;
+
   result.push({
     tests: n * TESTS_PER_FILE,
     jest: measure(() => runJest(n)),
