@@ -1,0 +1,11 @@
+{
+  "jest": {
+    "rootDir": "./"
+  },
+  "dependencies": {
+    "jest": "^14.1.0",
+    "mkdirp": "^0.5.1",
+    "mocha": "^3.0.1",
+    "rimraf": "^2.5.4"
+  }
+}

@@ -1,0 +1,53 @@
+<html>
+<head>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.bundle.js"></script>
+<script type="text/javascript" src="result.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.bundle.min.js"></script> -->
+</head>
+<body>
+  <div style="padding: 20px">
+    <canvas id="chart" width="300" height="300" style="padding: 20px"></canvas>
+  </div>
+</body>
+<script>
+
+const mocha = [];
+const jest = [];
+
+DATA.forEach(item => {
+  mocha.push({x: item.tests, y: item.mocha});
+  jest.push({x: item.tests, y: item.jest});
+});
+
+const ctx = document.getElementById('chart');
+var scatterChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        datasets: [
+          {
+            fill: false,
+            borderColor: '#C23B22',
+            label: 'Jest',
+            data: jest
+          },
+          {
+            fill: false,
+            borderColor: '#223BC2',
+            label: 'Mocha',
+            data: mocha,
+          }
+        ]
+    },
+    options: {
+        fill: false,
+        scales: {
+            xAxes: [{
+                id: 'n tests',
+                type: 'linear',
+                position: 'bottom'
+            }]
+        }
+    }
+});
+</script>
+</html>
